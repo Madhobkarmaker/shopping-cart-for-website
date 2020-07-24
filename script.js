@@ -1,4 +1,11 @@
+// remove first display and show second display
 
+const checkOut = document.getElementById("checkOut");
+checkOut.addEventListener('click',function(){
+    document.getElementById("next").style.display ="block";
+    document.getElementById("vanish").style.display = "none";
+
+})
 // add items using plus for mobile
 
 const increaseItem = document.getElementById("addItem1");
