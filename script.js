@@ -1,37 +1,56 @@
 
-// add items using plus
+// add items using plus for mobile
 
 const increaseItem = document.getElementById("addItem1");
 increaseItem.addEventListener("click",function(){
     const addItem = document.getElementById("value1").value;
-    const currentItem1 = parseFloat(addItem);
-    const totalItem1 = currentItem1 + 1 ; 
-    document.getElementById("value1").value = totalItem1 ;
+    const currentItem = parseFloat(addItem);
+    const totalItem = currentItem + 1 ; 
+    document.getElementById("value1").value = totalItem ;
 
-    const increasePrice1 = document.getElementById("price1").innerText;
-    const currentPrice1 = parseFloat(increasePrice1);
-    const totalMobilePrice = totalItem1 * 1219 ;
-    document.getElementById("price1").innerText = totalMobilePrice ;
+    increaseItem("price1",totalItem);
+    increaseItem("subTotal",totalItem);
+    increaseItem("total",totalItem);
 
+    function increaseItem(id,totalItem){
+    const increasePrice = document.getElementById(id).innerText;
+    const currentPrice = parseFloat(increasePrice);
+    const totalPrice = totalItem * 1219 ;
+    document.getElementById(id).innerText = totalPrice ;
+    }
 })
 
-// minus items using minus
+// minus items using minus for mobile
 
 const decreaseItem = document.getElementById("lessItem1");
 decreaseItem.addEventListener("click",function(){
     const lessItem = document.getElementById("value1").value;
-    const currentItem2 = parseFloat(lessItem);
-    const totalItem2 = currentItem2 - 1 ;
-    document.getElementById("value1").value = totalItem2 ;
+    const currentItem = parseFloat(lessItem);
+    const totalItem = currentItem - 1 ;
+    document.getElementById("value1").value = totalItem ;
 
-    const decreasePrice = document.getElementById("price1").innerText;
-    const currentPrice2 = parseFloat(decreasePrice);
-    const totalMobilePrice = totalItem2 * 1219 ;
-    document.getElementById("price1").innerText = totalMobilePrice ;
-
-    if (totalItem2 < 0) {
+    decreaseItem("price1", totalItem);
+    decreaseItem("subTotal", totalItem);
+    decreaseItem("total", totalItem); 
+    
+    if (totalItem <= 0) {
         document.getElementById("value1").value = 0;
         document.getElementById("price1").innerText = 0 ;
+        document.getElementById("subTotal").innerText = 0 ;
+        document.getElementById("total").innerText = 0 ;
        
     }
+
+    function decreaseItem(id,totalItem){
+        const decreasePrice = document.getElementById(id).innerText;
+        const currentPrice = parseFloat(decreasePrice);
+        const totalPrice = totalItem * 1219 ;
+        document.getElementById(id).innerText = totalPrice ;
+    } 
 })
+
+// add items using plus for case
+
+
+
+
