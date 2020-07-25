@@ -11,14 +11,14 @@ checkOut.addEventListener('click',function(){
 const increaseMobile = document.getElementById("addItem1");
 increaseMobile.addEventListener("click",function(){
     const addItem = document.getElementById("value1").value;
-    const currentItem = parseFloat(addItem);
+    const currentItem = parseInt(addItem);
     const totalItem = currentItem + 1 ; 
     document.getElementById("value1").value = totalItem ;
 
     const mobilePrice = document.getElementById("price1").innerText;
     const currentPrice = parseInt(mobilePrice);
-    const totalPrice= totalItem* 1259 ;
-    console.log(totalPrice);
+    const totalPrice= totalItem * 1259 ;
+    
     document.getElementById("price1").innerText = totalPrice ;
 
     calculateTotal();
@@ -30,12 +30,12 @@ increaseMobile.addEventListener("click",function(){
 const decreaseMobile = document.getElementById("lessItem1");
 decreaseMobile.addEventListener("click",function(){
     const lessItem = document.getElementById("value1").value;
-    const currentItem = parseFloat(lessItem);
+    const currentItem = parseInt(lessItem);
     const totalItem = currentItem - 1 ;
     document.getElementById("value1").value = totalItem ;
 
     const mobilePrice = document.getElementById("price1").innerText;
-    const currentMobilePrice = parseFloat(mobilePrice);
+    const currentMobilePrice = parseInt(mobilePrice);
     const totalMobilePrice = totalItem * 1259 ;
     document.getElementById("price1").innerText = totalMobilePrice ;
 
@@ -53,7 +53,7 @@ decreaseMobile.addEventListener("click",function(){
 const increaseCase= document.getElementById("addItem2");
 increaseCase.addEventListener("click",function(){
     const addItem = document.getElementById("value2").value;
-    const currentItem = parseFloat(addItem);
+    const currentItem = parseInt(addItem);
     const totalItem = currentItem + 1 ; 
     document.getElementById("value2").value = totalItem ;
 
@@ -71,12 +71,12 @@ increaseCase.addEventListener("click",function(){
 const decreaseCase = document.getElementById("lessItem2");
 decreaseCase.addEventListener("click",function(){
     const lessItem = document.getElementById("value2").value;
-    const currentItem = parseFloat(lessItem);
+    const currentItem = parseInt(lessItem);
     const totalItem = currentItem - 1 ;
     document.getElementById("value2").value = totalItem ;
 
     const casePrice = document.getElementById("price2").innerText;
-    const currentPrice = parseFloat(casePrice);
+    const currentPrice = parseInt(casePrice);
     const totalPrice = totalItem * 59 ;
     document.getElementById("price2").innerText = totalPrice ;
 
@@ -88,8 +88,8 @@ decreaseCase.addEventListener("click",function(){
 
 function calculateTotal(){
 
-    const subTotal = (document.getElementById("value1").value * 1259) + 
-                      (document.getElementById("value2").value * 59); 
+     const subTotal =parseInt(document.getElementById("price1").innerText) + 
+                      parseInt(document.getElementById("price2").innerText);
 
     document.getElementById("subTotal").innerText = subTotal ; 
 
@@ -100,4 +100,3 @@ function calculateTotal(){
     document.getElementById("total").innerText = totalAmount ;
 
 }
-
