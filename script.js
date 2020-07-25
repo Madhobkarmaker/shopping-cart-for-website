@@ -1,95 +1,75 @@
 // remove first display and show second display
 
-const checkOut = document.getElementById("checkOut");
-checkOut.addEventListener('click',function(){
+document.getElementById("checkOut").addEventListener('click',function(){
     document.getElementById("next").style.display ="block";
     document.getElementById("vanish").style.display = "none";
 
 })
-// add items using plus for mobile
+// add items using plus for mobileInput
 
-const increaseMobile = document.getElementById("addItem1");
-increaseMobile.addEventListener("click",function(){
-    const addItem = document.getElementById("value1").value;
-    const currentItem = parseInt(addItem);
-    const totalItem = currentItem + 1 ; 
-    document.getElementById("value1").value = totalItem ;
-
-    const mobilePrice = document.getElementById("price1").innerText;
-    const currentPrice = parseInt(mobilePrice);
-    const totalPrice= totalItem * 1259 ;
-    
-    document.getElementById("price1").innerText = totalPrice ;
-
+document.getElementById("addItem1").addEventListener("click",function(){
+    mobileInput('value1', 'price1', 1259);
     calculateTotal();
-
 })
 
-// minus items using minus for mobile
+function mobileInput(id1,id2,id3){
+    const addItem = document.getElementById(id1).value;
+    const currentItem = parseFloat(addItem);
+    const totalItem = currentItem + 1 ; 
+    document.getElementById(id1).value = totalItem ;
 
-const decreaseMobile = document.getElementById("lessItem1");
-decreaseMobile.addEventListener("click",function(){
-    const lessItem = document.getElementById("value1").value;
-    const currentItem = parseInt(lessItem);
-    const totalItem = currentItem - 1 ;
-    document.getElementById("value1").value = totalItem ;
+    const mobileInputPrice = document.getElementById(id2).innerText;
+    const currentPrice = parseInt(mobileInputPrice);
+    const totalPrice= totalItem * id3 ;
+    document.getElementById(id2).innerText = totalPrice ;  
+}
 
-    const mobilePrice = document.getElementById("price1").innerText;
-    const currentMobilePrice = parseInt(mobilePrice);
-    const totalMobilePrice = totalItem * 1259 ;
-    document.getElementById("price1").innerText = totalMobilePrice ;
+// minus items using minus for mobileInput
+
+document.getElementById("lessItem1").addEventListener("click",function(){
+    mobileCaseInput('value1', 'price1' , 1259);
+    calculateTotal();
+})
+
+function mobileCaseInput(id1,id2,id3){
+    const addItem = document.getElementById(id1).value;
+    const currentItem = parseFloat(addItem);
+    const totalItem = currentItem - 1 ; 
+    document.getElementById(id1).value = totalItem ;
+
+    const mobileInputPrice = document.getElementById(id2).innerText;
+    const currentPrice = parseInt(mobileInputPrice);
+    const totalPrice= totalItem* id3 ;
+    document.getElementById(id2).innerText = totalPrice ;
 
     if (totalItem < 0) {
         document.getElementById("value1").value = 0;
-        document.getElementById("price1").value = 0 ;
+        document.getElementById("price1").innerText = 0 ;
+        document.getElementById("value2").value = 0;
+        document.getElementById("price2").innerText = 0
   }
-
-    calculateTotal();
-
-})
+   
+}
 
 // add items using plus for case
 
-const increaseCase= document.getElementById("addItem2");
-increaseCase.addEventListener("click",function(){
-    const addItem = document.getElementById("value2").value;
-    const currentItem = parseInt(addItem);
-    const totalItem = currentItem + 1 ; 
-    document.getElementById("value2").value = totalItem ;
-
-    const casePrice = document.getElementById("price2").innerText;
-    const currentPrice = parseInt(casePrice);
-    const totalPrice= totalItem * 59 ;
-    document.getElementById("price2").innerText = totalPrice ;
-
-    calculateTotal();
-    
+document.getElementById("addItem2").addEventListener("click",function(){
+    mobileInput('value2', 'price2', 59);
+    calculateTotal();   
 })
 
 // minus items using minus for case
 
-const decreaseCase = document.getElementById("lessItem2");
-decreaseCase.addEventListener("click",function(){
-    const lessItem = document.getElementById("value2").value;
-    const currentItem = parseInt(lessItem);
-    const totalItem = currentItem - 1 ;
-    document.getElementById("value2").value = totalItem ;
-
-    const casePrice = document.getElementById("price2").innerText;
-    const currentPrice = parseInt(casePrice);
-    const totalPrice = totalItem * 59 ;
-    document.getElementById("price2").innerText = totalPrice ;
-
+document.getElementById("lessItem2").addEventListener("click",function(){
+    mobileCaseInput('value2','price2', 59)
     calculateTotal();
-
 })
 
 // subtotal,tax,total count
 
 function calculateTotal(){
-
-     const subTotal =parseInt(document.getElementById("price1").innerText) + 
-                      parseInt(document.getElementById("price2").innerText);
+    const subTotal = (document.getElementById("value1").value * 1259) + 
+                      (document.getElementById("value2").value * 59); 
 
     document.getElementById("subTotal").innerText = subTotal ; 
 
@@ -100,3 +80,4 @@ function calculateTotal(){
     document.getElementById("total").innerText = totalAmount ;
 
 }
+
