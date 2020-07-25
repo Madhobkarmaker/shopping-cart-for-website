@@ -12,6 +12,15 @@ document.getElementById("addItem1").addEventListener("click",function(){
     calculateTotal();
 })
 
+// minus items using minus for mobileInput
+
+document.getElementById("lessItem1").addEventListener("click",function(){
+    mobileCaseInput('value1', 'price1' , 1259);
+    calculateTotal();
+})
+
+// function for plus
+
 function mobileInput(id1,id2,id3){
     const addItem = document.getElementById(id1).value;
     const currentItem = parseFloat(addItem);
@@ -24,12 +33,7 @@ function mobileInput(id1,id2,id3){
     document.getElementById(id2).innerText = totalPrice ;  
 }
 
-// minus items using minus for mobileInput
-
-document.getElementById("lessItem1").addEventListener("click",function(){
-    mobileCaseInput('value1', 'price1' , 1259);
-    calculateTotal();
-})
+// function for minus
 
 function mobileCaseInput(id1,id2,id3){
     const addItem = document.getElementById(id1).value;
@@ -80,4 +84,16 @@ function calculateTotal(){
     document.getElementById("total").innerText = totalAmount ;
 
 }
+
+function myFunction() {
+   var myObj =  document.getElementById("mobile-item");
+    myObj.remove();
+}
+
+function myFunction1() {
+    var myObj =  document.getElementById("case-item");
+     myObj.remove();
+ }
+
+  
 
