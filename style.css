@@ -2,7 +2,7 @@ body{
 	background: #fff;
 }
 .cart{
-	margin: 100px 0;
+	margin: 20px 0;
 	background-color: #F6F5FA;;
 	padding: 60px 0;
 }
@@ -13,7 +13,7 @@ body{
 	background-color: #fff;
 	border-radius: 10px;
 	padding: 15px 20px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 .center-item{
     display: flex;
@@ -55,11 +55,11 @@ body{
 }
 .nextStep{
 	text-align: center;
-	background-color: rgb(233, 159, 47);
+	background-color: rgb(233, 47, 78);
 	color: white;
 	padding: 50px 0;
 	width: 50%;
-	margin: 200px 300px ;
+	margin: 100px 300px ;
 	border-radius: 1rem;
 	display: none;
 

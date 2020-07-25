@@ -8,56 +8,96 @@ checkOut.addEventListener('click',function(){
 })
 // add items using plus for mobile
 
-const increaseItem = document.getElementById("addItem1");
-increaseItem.addEventListener("click",function(){
+const increaseMobile = document.getElementById("addItem1");
+increaseMobile.addEventListener("click",function(){
     const addItem = document.getElementById("value1").value;
     const currentItem = parseFloat(addItem);
     const totalItem = currentItem + 1 ; 
     document.getElementById("value1").value = totalItem ;
 
-    increaseItem("price1",totalItem);
-    increaseItem("subTotal",totalItem);
-    increaseItem("total",totalItem);
+    const mobilePrice = document.getElementById("price1").innerText;
+    const currentPrice = parseInt(mobilePrice);
+    const totalPrice= totalItem* 1259 ;
+    console.log(totalPrice);
+    document.getElementById("price1").innerText = totalPrice ;
 
-    function increaseItem(id,totalItem){
-    const increasePrice = document.getElementById(id).innerText;
-    const currentPrice = parseFloat(increasePrice);
-    const totalPrice = totalItem * 1219 ;
-    document.getElementById(id).innerText = totalPrice ;
-    }
+    calculateTotal();
+
 })
 
 // minus items using minus for mobile
 
-const decreaseItem = document.getElementById("lessItem1");
-decreaseItem.addEventListener("click",function(){
+const decreaseMobile = document.getElementById("lessItem1");
+decreaseMobile.addEventListener("click",function(){
     const lessItem = document.getElementById("value1").value;
     const currentItem = parseFloat(lessItem);
     const totalItem = currentItem - 1 ;
     document.getElementById("value1").value = totalItem ;
 
-    decreaseItem("price1", totalItem);
-    decreaseItem("subTotal", totalItem);
-    decreaseItem("total", totalItem); 
-    
-    if (totalItem <= 0) {
-        document.getElementById("value1").value = 0;
-        document.getElementById("price1").innerText = 0 ;
-        document.getElementById("subTotal").innerText = 0 ;
-        document.getElementById("total").innerText = 0 ;
-       
-    }
+    const mobilePrice = document.getElementById("price1").innerText;
+    const currentMobilePrice = parseFloat(mobilePrice);
+    const totalMobilePrice = totalItem * 1259 ;
+    document.getElementById("price1").innerText = totalMobilePrice ;
 
-    function decreaseItem(id,totalItem){
-        const decreasePrice = document.getElementById(id).innerText;
-        const currentPrice = parseFloat(decreasePrice);
-        const totalPrice = totalItem * 1219 ;
-        document.getElementById(id).innerText = totalPrice ;
-    } 
+    if (totalItem < 0) {
+        document.getElementById("value1").value = 0;
+        document.getElementById("price1").value = 0 ;
+  }
+
+    calculateTotal();
+
 })
 
 // add items using plus for case
 
+const increaseCase= document.getElementById("addItem2");
+increaseCase.addEventListener("click",function(){
+    const addItem = document.getElementById("value2").value;
+    const currentItem = parseFloat(addItem);
+    const totalItem = currentItem + 1 ; 
+    document.getElementById("value2").value = totalItem ;
 
+    const casePrice = document.getElementById("price2").innerText;
+    const currentPrice = parseInt(casePrice);
+    const totalPrice= totalItem * 59 ;
+    document.getElementById("price2").innerText = totalPrice ;
 
+    calculateTotal();
+    
+})
+
+// minus items using minus for case
+
+const decreaseCase = document.getElementById("lessItem2");
+decreaseCase.addEventListener("click",function(){
+    const lessItem = document.getElementById("value2").value;
+    const currentItem = parseFloat(lessItem);
+    const totalItem = currentItem - 1 ;
+    document.getElementById("value2").value = totalItem ;
+
+    const casePrice = document.getElementById("price2").innerText;
+    const currentPrice = parseFloat(casePrice);
+    const totalPrice = totalItem * 59 ;
+    document.getElementById("price2").innerText = totalPrice ;
+
+    calculateTotal();
+
+})
+
+// subtotal,tax,total count
+
+function calculateTotal(){
+
+    const subTotal = (document.getElementById("value1").value * 1259) + 
+                      (document.getElementById("value2").value * 59); 
+
+    document.getElementById("subTotal").innerText = subTotal ; 
+
+    const tax = Math.round(subTotal * 0.03);
+    document.getElementById("tax").innerText = tax ;
+
+    const totalAmount = subTotal + tax ;
+    document.getElementById("total").innerText = totalAmount ;
+
+}
 
